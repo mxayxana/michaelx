@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+@import url(https://fonts.googleapis.com/css?family=Krona+One);
+*{padding: 0; margin: 0; box-sizing: border-box; }
+
+body {
+    background-color: rgba(246, 244, 243, 1);
+}
+
+.title {
+    color: rgba(136, 153, 130, 1);
+    font-family: 'Krona One', sans-serif;
+    font-size: 4rem;
+}
+
+.nav-bar {
+    color: rgba(102, 51, 0, 1);
+    font-family: 'Krona One', sans-serif;
+    font-size: 1.5rem;
+}
