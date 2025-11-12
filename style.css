@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Audiowide);
 @import url(https://fonts.googleapis.com/css?family=Krona+One);
 *{padding: 0; margin: 0; box-sizing: border-box; }
 
@@ -10,10 +9,82 @@ body {
     color: rgba(136, 153, 130, 1);
     font-family: 'Krona One', sans-serif;
     font-size: 4rem;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .nav-bar {
     color: rgba(102, 51, 0, 1);
     font-family: 'Krona One', sans-serif;
     font-size: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 2rem;
+}
+
+.nav-bar li {
+    list-style: none;
+    padding: 0.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 20px;
+    /*
+     * justify-content: space-between automatically puts "space between" menu-link and contacts!
+     */
+}
+
+.contacts {
+    display: flex;
+    gap: 36px;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+
+.menu-icon {
+    color: rgba(102, 51, 0, 1);
+    width: 36px;
+    height: 36px;
+}
+
+.menu-icon:hover {
+    color: rgb(136, 153, 130);
+}
+
+.icon-link {
+    color: rgba(102, 51, 0, 1);
+}
+
+.icon-link:hover {
+    color: rgba(136, 153, 130, 1);
+}
+
+.dark-mode {
+    color: rgba(136, 153, 130, 1);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dark-mode:hover {
+    transform: scale(1.1);
 }
