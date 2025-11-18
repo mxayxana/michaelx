@@ -18,18 +18,6 @@ body {
 
 }
 
-/**
-.side-menu {
-    color: rgba(102, 51, 0, 1);
-    font-family: 'Krona One', sans-serif;
-    font-size: 1.5rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 2rem;
-}
-    **/
-
 .side-menu { /** hidden state**/
     /* positioning: fixed to the viewport */
     position: fixed;
@@ -70,6 +58,10 @@ body {
 .side-menu.menu-open li {
     opacity: 1;
     transform: translateX(0);
+}
+
+.side-menu.menu-open li:hover {
+    color: rgb(136, 153, 130);
 }
 
 .header {
@@ -132,4 +124,43 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+/* Ensure the parent menu-link container has a relative position for positioning */
+.menu-link {
+    position: relative; 
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+
+/* Ensure hamburger and arrow icons are layered on top of each other */
+.menu-icon {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) rotate(0deg); /* Initial state */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
+}
+
+/* Base State: Arrow is hidden */
+#back-arrow {
+    opacity: 0;
+    pointer-events: none;
+    /* Start arrow rotated so it can spin in */
+    transform: translate(-50%, -50%) rotate(-180deg); 
+}
+
+/* Hide the hamburger icon (spin out) */
+body.menu-open #hamburger-icon {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Show the back arrow icon (spin in) */
+body.menu-open #back-arrow {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
