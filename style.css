@@ -9,6 +9,7 @@ body {
     color: rgba(136, 153, 130, 1);
     font-family: 'Krona One', sans-serif;
     font-size: 4rem;
+    justify-content: center;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -17,7 +18,8 @@ body {
 
 }
 
-.nav-bar {
+/**
+.side-menu {
     color: rgba(102, 51, 0, 1);
     font-family: 'Krona One', sans-serif;
     font-size: 1.5rem;
@@ -26,10 +28,48 @@ body {
     left: 0;
     margin: 2rem;
 }
+    **/
 
-.nav-bar li {
+.side-menu { /** hidden state**/
+    /* positioning: fixed to the viewport */
+    position: fixed;
+    bottom: 0;
+
+    /* initial hidden position: pushed off to the left side */
+    left: -300px;
+
+    /* sizing and look */
+    width: 300px;
+    height: 180px;
+    z-index: 999;
+
+    /* styling */
+    color: rgba(102, 51, 0, 1);
+    font-family: 'Krona one', sans-serif;
+    font-size: 1.5rem;
+
+    /* smooth animation*/
+    transition: left 0.3s ease-out;
+
+    /* padding inside the menu for content*/
+    padding: 1rem;
+}
+
+.side-menu.menu-open {
+    left: 0;
+}
+
+.side-menu li {
     list-style: none;
     padding: 0.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.side-menu.menu-open li {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .header {
@@ -87,4 +127,9 @@ body {
 
 .dark-mode:hover {
     transform: scale(1.1);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
