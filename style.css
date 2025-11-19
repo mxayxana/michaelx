@@ -3,6 +3,125 @@
 
 body {
     background-color: rgba(246, 244, 243, 1);
+    transition: background-color 0.5s ease;
+}
+
+/** DARK MODE **/
+body {
+    color: initial;
+}
+
+body.dark-mode-active {
+    background-color: rgb(136, 153, 130);
+    color: rgba(246, 244, 243, 1);
+}
+
+body.dark-mode-active .menu-icon,
+body.dark-mode-active .icon-link,
+body.dark-mode-active .side-menu,
+body.dark-mode-active .dark-mode {
+    color: rgba(246, 244, 243, 1); /* Light color */
+}
+
+/* HOVER EFFECTS */
+body.dark-mode-active .icon-link:hover {
+    color: rgba(102, 51, 0, 1);
+}
+
+body.dark-mode-active .side-menu.menu-open li:hover {
+    color: rgba(102, 51, 0, 1);
+}
+
+body.dark-mode-active .menu-icon:hover {
+    color: rgba(102, 51, 0, 1);
+}
+
+body.dark-mode-active .title {
+    color: rgba(102, 51, 0, 1);
+}
+
+body.dark-mode-activate .dark-mode {
+    color: rgba(246, 244, 243, 1);
+}
+
+/* Spill animation */
+/* Add transition properties to the icon */
+.dark-mode svg {
+    /* Make the rotation smooth */
+    transition: transform 0.4s ease-out; 
+    /* Set the pivot point near the base/handle of the cup to make it "spill" */
+    transform-origin: 80% 80%; 
+}
+
+/* animation to enter dark mode */
+@keyframes spill-and-return {
+    /* Start at the upright position */
+    0% {
+        transform: rotate(0deg);
+    }
+    /* Quick rotation to the "spill" position */
+    50% {
+        transform: rotate(-70deg);
+    }
+    /* Return to the upright position */
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* animation to restore light mode */
+@keyframes restore-and-return {
+    /* Start where the cup left off (spilled) */
+    0% {
+        transform: rotate(0deg);
+    }
+    /* Move slightly past the center (for a nice visual bounce) */
+    50% {
+        transform: rotate(-75deg); 
+    }
+    /* End at the final upright position */
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.dark-mode svg.spill {
+    /* Apply the animation */
+    animation-name: spill-and-return;
+    /* Set the total duration for one cycle */
+    animation-duration: 0.8s; 
+    /* so the animation runs only once */
+    animation-iteration-count: 1; 
+    /* so the icon stays in its final position (upright, 0deg) */
+    animation-fill-mode: forwards;
+}
+
+.dark-mode svg.restore {
+    /* Apply the reverse animation */
+    animation-name: restore-and-return;
+    animation-duration: 0.8s; 
+    animation-iteration-count: 1; 
+    /* Crucial: ensures it ends at the final state (0deg) */
+    animation-fill-mode: forwards;
+}
+
+/* placing the little coffee cup icon on bottom right corner */
+.dark-mode {
+    color: rgba(136, 153, 130, 1);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dark-mode:hover {
+    transform: scale(1.1);
 }
 
 .title {
@@ -103,24 +222,6 @@ body {
     color: rgba(136, 153, 130, 1);
 }
 
-.dark-mode {
-    color: rgba(136, 153, 130, 1);
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 100;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease-in-out;
-}
-
-.dark-mode:hover {
-    transform: scale(1.1);
-}
-
 a {
     color: inherit;
     text-decoration: none;
@@ -163,4 +264,31 @@ body.menu-open #back-arrow {
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* secondary header styling (for about/projects pages) */
+.secondary-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.back-arrow {
+    display: block;
+}
+
+.back-arrow #back-arrow {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+.back-icon {
+    color: rgba(102, 51, 0, 1);
+    width: 36px;
+    height: 36px;
+}
+
+.back-icon:hover {
+    color:rgba(136, 153, 130, 1);
 }
