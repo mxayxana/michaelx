@@ -295,7 +295,7 @@ body.menu-open #back-arrow {
     color:rgba(136, 153, 130, 1);
 }
 
-/* Styling for About Me page */
+/* ================== Styling for About Me page == */
 
 /* --- 1. The Main Header Container (Vertical Stack & Center) --- */
 .about-header {
@@ -414,7 +414,7 @@ body.menu-open #back-arrow {
 @media (max-width: 850px) {
     .table-columns-container {
         flex-direction: column;
-        row-gap: 20px;
+        row-gap: 4px;
     }
 
     .left-column,
@@ -452,13 +452,24 @@ table td {
     font-family: 'Kufam', sans-serif;
 }
 
-table td:first-child { /* First column (item / fact) */
+/* Targets ALL TD elements EXCEPT those inside .summary-table */
+table:not(.summary-table) td:first-child {
     width: 75%;
     text-align: left;
     padding-right: 20px;
 }
 
-table td:last-child { /* second column (dates / desc)*/
+/* ^^ */
+table:not(.summary-table) td:last-child {
     width: 25%;
     text-align: right;
 }
+
+/* Summary text styling*/
+.summary {
+    width: 100%;
+    text-align: left;
+    line-height: 2.0;
+}
+
+/*====== PROJECTS PAGE STYLING ==========*/
