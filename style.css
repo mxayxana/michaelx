@@ -129,7 +129,7 @@ body.dark-mode-activate .dark-mode {
 .title {
     color: rgba(136, 153, 130, 1);
     font-family: 'Krona One', sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     justify-content: center;
     margin: 0;
     position: absolute;
@@ -316,7 +316,7 @@ body.menu-open #back-arrow {
 .about-title {
     color: rgba(136, 153, 130, 1);
     font-family: 'Krona One', sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 20px; /* Space between the title and the sub-header */
     text-align: center; /* Ensures text is centered if it wraps */
 }
@@ -437,7 +437,7 @@ table {
 }
 
 table thead th {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-weight: lighter;
     color: rgba(136, 153, 130, 1);
     text-align: left;
@@ -473,3 +473,64 @@ table:not(.summary-table) td:last-child {
 }
 
 /*====== PROJECTS PAGE STYLING ==========*/
+
+/* --styling the header (personal projects, coursework projects) */
+.projects-container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 90%; /* percentages work better for responsiveness on smaller screens */
+}
+
+/* --- Accordion Containers --- */
+.category-item {
+    border: 2px solid rgba(136, 153, 130, 1); /* Your matcha/dark color */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Important to hide content outside the defined height */
+}
+
+/* --- The Clickable Header --- */
+.category-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    cursor: pointer; /* Indicates it's clickable */
+    background-color: rgba(246, 244, 243, 1); /* Light background for the header */
+    color: rgba(102, 51, 0, 1);
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: lighter;
+}
+
+/* --- The Content Area (Initial Hidden State) --- */
+.project-content-area {
+    /* 🎯 CRUCIAL: Set height to 0 to hide content */
+    max-height: 0; 
+    /* Use a generous transition for the height collapse effect */
+    transition: max-height 0.5s ease-out; 
+    padding: 0 25px; /* Apply horizontal padding now, vertical padding later */
+}
+
+/* --- The OPEN State (Triggered by JS) --- */
+/* The class that JS will toggle on the .category-item */
+.category-item.open .project-content-area {
+    /* 🎯 Set a height large enough to contain all content */
+    max-height: 1000px; /* Use a large number that will definitely fit all content */
+    padding-top: 15px; /* Add space when open */
+    padding-bottom: 15px;
+}
+
+/* --- Content Styling (e.g., Project Cards) --- */
+.project-card {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-family: 'Kodchasan', sans-serif;
+    color: rgba(136, 153, 130, 1)
+}
+
+.project-card p {
+    color: rgba(102, 51, 0, 1)
+}
