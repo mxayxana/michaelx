@@ -1,3 +1,3 @@
 # michaelx
 
-my coffeeshop themed portfolio site !
+my teashop themed portfolio site !
